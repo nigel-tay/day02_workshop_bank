@@ -9,7 +9,7 @@ import java.util.List;
 public class BankAccount {
     private final String holderName;
     private String accountNumber;
-    private float accountBalance;
+    protected float accountBalance;
     private List<String> transactions;
     private boolean isClosed;
     private Date openDate;
