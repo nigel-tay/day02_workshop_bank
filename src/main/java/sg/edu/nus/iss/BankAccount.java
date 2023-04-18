@@ -102,7 +102,34 @@ public class BankAccount {
         else {
             LocalDateTime depositDateTime = LocalDateTime.now();
             String formattedDateTime = depositDateTime.format(myFormatObj);
-            transactions.add("deposit - $" + depositAmount + " at " + formattedDateTime);
+            transactions.add("\ndeposit - $" + depositAmount + " at " + formattedDateTime + "\n");
+        }
+    }
+
+    // Withdraw method
+    public void withdraw(float withdrawalAmount) {
+        /**
+         * If withdraw is successful add the following line to transactions:
+         * "withdrew $<withdrawalAmount> at <date time>"
+         * 
+         * Cases where withdrawal would not be accepted:
+         * 1. account closed
+         * 2. withdrawalAmount is negative or less than accountBalance
+         */
+
+        if (isClosed) {
+            throw new IllegalArgumentException("Account has been closed, you are not allowed to make a withdrawal.");
+        }
+        else if (withdrawalAmount < 0) {
+            throw new IllegalArgumentException("The withdrawal amount is negative, this is literally impossible");
+        }
+        else if (withdrawalAmount < accountBalance) {
+            throw new IllegalArgumentException("You don't have that much money. This is how much is in YO BANK: " + accountBalance);
+        }
+        else {
+            LocalDateTime withdrawalDateTime = LocalDateTime.now();
+            String formattedDateTime = withdrawalDateTime.format(myFormatObj);
+            transactions.add("\nwithdrew - $" + withdrawalAmount + " at " + formattedDateTime + "\n");
         }
     }
 }

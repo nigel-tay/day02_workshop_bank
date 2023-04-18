@@ -16,6 +16,7 @@ public class App
         System.out.println(nigelAccount.getTransactions());
 
         // Withdraw test
-        
+        nigelAccount.withdraw(50f);
+        System.out.println(nigelAccount.getTransactions());
     }
 }
