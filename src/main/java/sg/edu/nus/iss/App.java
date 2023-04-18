@@ -8,6 +8,14 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        // Instantiate new BankAccount object
+        BankAccount nigelAccount = new BankAccount("nigel");
+
+        // Deposit test
+        nigelAccount.deposit(100f);
+        System.out.println(nigelAccount.getTransactions());
+
+        // Withdraw test
+        
     }
 }
